@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enlaces Oficiales - Piel de Porcelana</title>
+    <title>Enlaces Oficiales - Tu Mejor Versión</title>
     <style>
         /* --- CONFIGURAÇÕES PREMIUM --- */
         :root {
@@ -13,8 +13,8 @@
             --surface: #ffffff;
             --text-main: #333333;
             --text-sub: #666666;
-            --accent: #e63946; /* Vermelho Oferta */
-            --green: #2a9d8f;
+            --accent: #e63946; 
+            --green: #25D366; /* Verde Oficial do WhatsApp */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,7 +27,6 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            /* Gradiente sutil no fundo para dar profundidade */
             background: linear-gradient(180deg, #faedcd 0%, #fdfcf8 30%);
         }
 
@@ -40,7 +39,7 @@
             align-items: center;
         }
 
-        /* --- PERFIL (AUTORIDADE) --- */
+        /* --- PERFIL --- */
         .profile-wrapper {
             text-align: center;
             margin-bottom: 35px;
@@ -54,6 +53,7 @@
             border: 4px solid var(--surface);
             box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
             margin-bottom: 10px;
+            background-color: #eee;
         }
 
         .username-container {
@@ -70,9 +70,8 @@
             letter-spacing: -0.5px;
         }
 
-        /* Selo de Verificado */
         .verified-badge {
-            color: var(--primary); /* Dourado */
+            color: var(--primary);
             font-size: 18px;
         }
 
@@ -94,7 +93,7 @@
             margin-right: auto;
         }
 
-        /* --- LINKS (ORGANIZAÇÃO) --- */
+        /* --- LINKS --- */
         .links-wrapper {
             width: 100%;
             display: flex;
@@ -102,7 +101,6 @@
             gap: 16px;
         }
 
-        /* Estilo Base dos Botões */
         .link-card {
             background: var(--surface);
             padding: 16px;
@@ -123,11 +121,11 @@
             border-color: var(--primary);
         }
 
-        /* --- O BOTÃO "HERO" (O PRINCIPAL) --- */
+        /* BOTÃO HERO */
         .link-hero {
-            background: #fff; /* Destaque */
+            background: #fff;
             border: 2px solid var(--primary);
-            padding: 10px; /* Padding menor externo para acomodar a imagem */
+            padding: 10px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -140,37 +138,14 @@
             border-radius: 12px;
             object-fit: cover;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #ddd;
         }
 
-        .hero-content {
-            text-align: left;
-            flex: 1;
-        }
+        .hero-content { text-align: left; flex: 1; }
+        .hero-title { font-weight: 800; font-size: 16px; color: var(--primary-dark); display: block; margin-bottom: 4px; }
+        .hero-subtitle { font-size: 13px; color: var(--text-sub); display: block; line-height: 1.3; }
+        .hero-price { color: var(--green); font-weight: 700; font-size: 14px; margin-top: 4px; display: block; }
 
-        .hero-title {
-            font-weight: 800;
-            font-size: 16px;
-            color: var(--primary-dark);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .hero-subtitle {
-            font-size: 13px;
-            color: var(--text-sub);
-            display: block;
-            line-height: 1.3;
-        }
-
-        .hero-price {
-            color: var(--green);
-            font-weight: 700;
-            font-size: 14px;
-            margin-top: 4px;
-            display: block;
-        }
-
-        /* Tag de Promoção */
         .tag-promo {
             position: absolute;
             top: -10px;
@@ -185,42 +160,15 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        /* --- LINKS SECUNDÁRIOS --- */
-        .link-secondary {
-            justify-content: space-between; /* Texto na esquerda, seta na direita */
-            padding: 20px;
-        }
-        
-        .link-title {
-            font-weight: 600;
-            font-size: 15px;
-        }
-        
-        .icon-right {
-            color: #ccc;
-        }
+        .link-secondary { justify-content: space-between; padding: 20px; }
+        .link-title { font-weight: 600; font-size: 15px; }
+        .icon-right { color: #ccc; }
 
-        /* --- RODAPÉ SOCIAL --- */
-        .social-wrapper {
-            margin-top: 40px;
-            display: flex;
-            gap: 25px;
-        }
-        .social-icon {
-            font-size: 26px;
-            color: var(--primary);
-            transition: transform 0.2s;
-            text-decoration: none;
-        }
+        .social-wrapper { margin-top: 40px; display: flex; gap: 25px; }
+        .social-icon { font-size: 26px; color: var(--primary); transition: transform 0.2s; text-decoration: none; }
         .social-icon:hover { transform: scale(1.2); }
+        .copyright { margin-top: 30px; font-size: 12px; color: #aaa; }
 
-        .copyright {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #aaa;
-        }
-
-        /* Animações */
         @keyframes subtle-pulse {
             0% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.4); }
             70% { box-shadow: 0 0 0 6px rgba(212, 163, 115, 0); }
@@ -239,67 +187,38 @@
     <div class="container">
 
         <div class="profile-wrapper">
-            <img src="foto_cliente1.jpg" alt="Perfil Piel de Porcelana" class="profile-img">
+            <img src="https://via.placeholder.com/150/FFC0CB/000000?text=Logo" alt="Perfil" class="profile-img">
             
             <div class="username-container">
-                <div class="username">Piel de Porcelana</div>
+                <div class="username">Tu Mejor Versión ✨</div>
                 <div class="verified-badge">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"></path></svg>
                 </div>
             </div>
 
-            <div class="rating">⭐⭐⭐⭐⭐ <span>(4.9/5)</span></div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span>(Comunidad VIP)</span></div>
             
             <p class="bio">
-                ✨ Secretos de belleza coreana.<br>
-                🌿 Recetas naturales y efectivas.<br>
-                👇 <b>Empieza tu transformación aquí:</b>
+                🧴 Skincare • 💇‍♀️ Cabello • 🥗 Fitness<br>
+                ✨ Transforma tu cuerpo y mente.<br>
+                👇 <b>Únete a nosotras aquí:</b>
             </p>
         </div>
 
         <div class="links-wrapper">
 
-            <a href="index.html" class="link-card link-hero">
-                <div class="tag-promo">OFERTA 80% OFF</div>
-                
-                <img src="capa_manual.jpg" alt="Capa" class="hero-thumb">
-                
+            <a href="#" class="link-card link-hero">
+                <div class="tag-promo">NUEVO</div>
+                <img src="https://via.placeholder.com/150" alt="Capa" class="hero-thumb">
                 <div class="hero-content">
-                    <span class="hero-title">Manual Piel de Porcelana</span>
-                    <span class="hero-subtitle">Elimina manchas y acné en 2 semanas.</span>
-                    <span class="hero-price">De $47 por solo $9.00</span>
+                    <span class="hero-title">Guía Glow Up Total</span>
+                    <span class="hero-subtitle">Rutinas completas para ti.</span>
+                    <span class="hero-price">Ver Oferta ➜</span>
                 </div>
-
                 <div class="icon-right">👉</div>
             </a>
 
-            <a href="#" class="link-card link-secondary">
+            <a href="https://chat.whatsapp.com/DhJw31PaH8f2CwpRgue2Cr" target="_blank" class="link-card link-secondary">
                 <div style="display:flex; align-items:center; gap:10px;">
-                    <span>💬</span>
-                    <span class="link-title">Grupo VIP de Alunas</span>
-                </div>
-                <div class="icon-right">→</div>
-            </a>
-
-            <a href="#" class="link-card link-secondary">
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <span>📞</span>
-                    <span class="link-title">Soporte / Contacto</span>
-                </div>
-                <div class="icon-right">→</div>
-            </a>
-
-        </div>
-
-        <div class="social-wrapper">
-            <a href="#" class="social-icon">📸</a>
-            <a href="#" class="social-icon">🎵</a>
-            <a href="#" class="social-icon">📧</a>
-        </div>
-
-        <div class="copyright">© 2024 Piel de Porcelana Oficial</div>
-
-    </div>
-
-</body>
-</html>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382C17.175 14.233 15.714 13.515 15.441 13.416C15.169 13.317 14.971 13.267 14.773 13.565C14.575 13.863 14.005 14.532 13.832 14.731C13.659 14.929 13.486 14.954 13.189 14.805C12.892 14.656 11.935 14.343 10.8 13.331C9.916 12.543 9.319 11.57 9.146 11.272C8.973 10.975 9.128 10.814 9.277 10.666C9.411 10.533 9.575 10.32 9.724 10.146C9.873 9.973 9.922 9.849 10.021 9.651C10.12 9.452 10.071 9.279 9.997 9.13C9.922 8.981 9.328 7.519 9.08 6.924C8.832
