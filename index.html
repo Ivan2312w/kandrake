@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enlaces - Tu Mejor Versión</title>
     <style>
-        /* --- ESTILO LIMPO E PREMIUM --- */
+        /* --- ESTILO PREMIUM & LIMPO --- */
         :root {
             --bg: #fdfcf8;
             --surface: #ffffff;
@@ -13,7 +13,7 @@
             --text-sub: #666666;
             --primary: #d4a373; 
             --green: #25D366;   
-            --red: #e63946; /* Vermelho para Ofertas */
+            --red: #e63946;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,16 +38,16 @@
             align-items: center;
         }
 
-        /* --- PERFIL --- */
+        /* --- FOTO DE PERFIL --- */
         .profile-img {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            object-fit: cover;
+            object-fit: cover; /* Garante que a foto não fique esticada */
             border: 4px solid var(--surface);
             box-shadow: 0 5px 15px rgba(212, 163, 115, 0.3);
             margin-bottom: 15px;
-            background-color: #eee;
+            background-color: #eee; /* Cor de fundo enquanto carrega */
         }
 
         .username {
@@ -70,7 +70,7 @@
             line-height: 1.4;
         }
 
-        /* --- LISTA DE LINKS --- */
+        /* --- BOTÕES --- */
         .links-wrapper {
             width: 100%;
             display: flex;
@@ -78,7 +78,6 @@
             gap: 15px;
         }
 
-        /* Estilo Geral dos Botões */
         .link-card {
             background: var(--surface);
             text-decoration: none;
@@ -91,7 +90,7 @@
             align-items: center;
             gap: 15px;
             transition: transform 0.2s, box-shadow 0.2s;
-            position: relative; /* Para posicionar elementos */
+            position: relative;
         }
 
         .link-card:hover {
@@ -100,7 +99,7 @@
             border-color: var(--primary);
         }
 
-        /* Imagem Pequena (Thumbnail) */
+        /* Thumbnails (Imagens pequenas nos botões) */
         .btn-thumb {
             width: 65px;
             height: 65px;
@@ -110,24 +109,14 @@
             border: 1px solid #eee;
         }
 
-        /* Texto do botão */
         .btn-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
         .btn-title { font-weight: 700; font-size: 15px; }
         .btn-subtitle { font-size: 13px; color: var(--text-sub); }
 
-        /* Preço riscado (efeito de promoção) */
-        .old-price {
-            text-decoration: line-through;
-            color: #aaa;
-            font-size: 12px;
-            margin-right: 5px;
-        }
-        .new-price {
-            color: var(--red);
-            font-weight: bold;
-        }
+        .old-price { text-decoration: line-through; color: #aaa; font-size: 12px; margin-right: 5px; }
+        .new-price { color: var(--red); font-weight: bold; }
 
-        /* Etiqueta de Desconto */
+        /* Etiqueta de Oferta */
         .badge-off {
             background-color: var(--red);
             color: white;
@@ -142,14 +131,11 @@
 
         .icon-arrow { color: #ccc; font-size: 20px; }
 
-        /* Estilo WhatsApp */
         .whatsapp-style { border: 2px solid #e0f2e9; }
         .whatsapp-style:hover { border-color: var(--green); }
 
-        /* Rodapé */
         .footer { margin-top: 50px; font-size: 12px; color: #ccc; }
 
-        /* Animação de Pulsar */
         @keyframes pulse {
             0% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.85; transform: scale(1.05); }
@@ -188,6 +174,7 @@
             </a>
 
             <a href="https://pieldeporcelana.vercel.app/" target="_blank" class="link-card">
+                
                 <img src="capa_manual.jpg" alt="Ebook" class="btn-thumb">
                 
                 <div class="btn-content">
