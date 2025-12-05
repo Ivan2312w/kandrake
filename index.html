@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enlaces Oficiales - Tu Mejor Versión</title>
+    <title>Tu Mejor Versión - Links</title>
     <style>
-        /* --- CONFIGURAÇÕES PREMIUM --- */
+        /* --- ESTILO PREMIUM (Mesmas cores da sua marca) --- */
         :root {
             --primary: #d4a373;
-            --primary-dark: #b07d62;
             --bg: #fdfcf8;
             --surface: #ffffff;
             --text-main: #333333;
             --text-sub: #666666;
-            --accent: #e63946; 
-            --green: #25D366; /* Verde Oficial do WhatsApp */
+            --whatsapp: #25D366; 
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,162 +20,129 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
+            background: linear-gradient(180deg, #faedcd 0%, #fdfcf8 40%); /* Degradê suave no topo */
             color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(180deg, #faedcd 0%, #fdfcf8 30%);
+            padding-bottom: 40px;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
-            padding: 40px 20px;
+            max-width: 480px; /* Largura ideal para celular */
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         /* --- PERFIL --- */
-        .profile-wrapper {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
         .profile-img {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--surface);
-            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
-            margin-bottom: 10px;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+            margin-bottom: 15px;
             background-color: #eee;
         }
 
-        .username-container {
+        .username-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            gap: 5px;
+            margin-bottom: 5px;
         }
 
         .username {
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--text-main);
-            letter-spacing: -0.5px;
         }
 
-        .verified-badge {
-            color: var(--primary);
-            font-size: 18px;
-        }
-
-        .rating {
-            color: #FFD700;
-            font-size: 14px;
-            margin-top: 4px;
-            font-weight: 600;
-        }
-        .rating span { color: var(--text-sub); font-size: 12px; font-weight: 400; }
+        .verified { color: var(--primary); }
 
         .bio {
-            font-size: 15px;
+            text-align: center;
+            font-size: 14px;
             color: var(--text-sub);
-            margin-top: 8px;
-            line-height: 1.4;
+            margin-bottom: 30px;
+            line-height: 1.5;
             max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        /* --- LINKS --- */
-        .links-wrapper {
+        /* --- LISTA DE BOTÕES (LINKS) --- */
+        .link-list {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px; /* Espaço entre os botões */
         }
 
-        .link-card {
-            background: var(--surface);
-            padding: 16px;
-            border-radius: 16px;
-            text-decoration: none;
+        .btn-link {
+            background-color: var(--surface);
             color: var(--text-main);
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            transition: all 0.2s ease;
+            text-decoration: none;
+            padding: 18px 20px;
+            border-radius: 50px; /* Bordas bem redondas estilo Linktree */
             display: flex;
             align-items: center;
-            position: relative;
+            justify-content: space-between; /* Espalha o texto e o ícone */
+            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        /* Efeito ao passar o mouse */
+        .btn-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
             border-color: var(--primary);
         }
 
-        /* BOTÃO HERO */
-        .link-hero {
-            background: #fff;
-            border: 2px solid var(--primary);
-            padding: 10px;
+        /* Destaque especial para o botão do WhatsApp */
+        .btn-whatsapp {
+            border: 2px solid var(--whatsapp);
+            background-color: #f0fdf4; /* Fundo levemente verde */
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            width: 30px;
             display: flex;
-            align-items: center;
-            gap: 15px;
-            animation: subtle-pulse 3s infinite;
+            justify-content: center;
         }
 
-        .hero-thumb {
-            width: 70px;
-            height: 70px;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            background-color: #ddd;
+        /* Ícone de seta no final do botão */
+        .arrow-right {
+            color: #ccc;
+            font-size: 18px;
         }
 
-        .hero-content { text-align: left; flex: 1; }
-        .hero-title { font-weight: 800; font-size: 16px; color: var(--primary-dark); display: block; margin-bottom: 4px; }
-        .hero-subtitle { font-size: 13px; color: var(--text-sub); display: block; line-height: 1.3; }
-        .hero-price { color: var(--green); font-weight: 700; font-size: 14px; margin-top: 4px; display: block; }
-
-        .tag-promo {
-            position: absolute;
-            top: -10px;
-            right: 15px;
-            background: var(--accent);
-            color: white;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 20px;
-            box-shadow: 0 2px 5px rgba(230, 57, 70, 0.4);
-            animation: float 3s ease-in-out infinite;
+        /* --- RODAPÉ --- */
+        .social-icons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
         }
-
-        .link-secondary { justify-content: space-between; padding: 20px; }
-        .link-title { font-weight: 600; font-size: 15px; }
-        .icon-right { color: #ccc; }
-
-        .social-wrapper { margin-top: 40px; display: flex; gap: 25px; }
-        .social-icon { font-size: 26px; color: var(--primary); transition: transform 0.2s; text-decoration: none; }
-        .social-icon:hover { transform: scale(1.2); }
-        .copyright { margin-top: 30px; font-size: 12px; color: #aaa; }
-
-        @keyframes subtle-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.4); }
-            70% { box-shadow: 0 0 0 6px rgba(212, 163, 115, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 163, 115, 0); }
+        .social-link {
+            font-size: 24px;
+            color: var(--primary);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: 0.2s;
         }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-3px); }
-            100% { transform: translateY(0px); }
+        .social-link:hover { opacity: 1; transform: scale(1.1); }
+        
+        .footer-text {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #bbb;
         }
 
     </style>
@@ -186,39 +151,67 @@
 
     <div class="container">
 
-        <div class="profile-wrapper">
-            <img src="https://via.placeholder.com/150/FFC0CB/000000?text=Logo" alt="Perfil" class="profile-img">
-            
-            <div class="username-container">
-                <div class="username">Tu Mejor Versión ✨</div>
-                <div class="verified-badge">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"></path></svg>
-                </div>
-            </div>
-
-            <div class="rating">⭐⭐⭐⭐⭐ <span>(Comunidad VIP)</span></div>
-            
-            <p class="bio">
-                🧴 Skincare • 💇‍♀️ Cabello • 🥗 Fitness<br>
-                ✨ Transforma tu cuerpo y mente.<br>
-                👇 <b>Únete a nosotras aquí:</b>
-            </p>
+        <img src="https://via.placeholder.com/150/FFC0CB/000000?text=Logo" alt="Tu Mejor Versión" class="profile-img">
+        
+        <div class="username-row">
+            <span class="username">Tu Mejor Versión ✨</span>
+            <svg class="verified" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"></path></svg>
         </div>
 
-        <div class="links-wrapper">
+        <p class="bio">
+            Belleza Integral 360° 💖<br>
+            Piel • Cabello • Fitness • Mentalidad
+        </p>
 
-            <a href="#" class="link-card link-hero">
-                <div class="tag-promo">NUEVO</div>
-                <img src="https://via.placeholder.com/150" alt="Capa" class="hero-thumb">
-                <div class="hero-content">
-                    <span class="hero-title">Guía Glow Up Total</span>
-                    <span class="hero-subtitle">Rutinas completas para ti.</span>
-                    <span class="hero-price">Ver Oferta ➜</span>
+        <div class="link-list">
+
+            <a href="https://chat.whatsapp.com/DhJw31PaH8f2CwpRgue2Cr" target="_blank" class="btn-link btn-whatsapp">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382C17.175 14.233 15.714 13.515 15.441 13.416C15.169 13.317 14.971 13.267 14.773 13.565C14.575 13.863 14.005 14.532 13.832 14.731C13.659 14.929 13.486 14.954 13.189 14.805C12.892 14.656 11.935 14.343 10.8 13.331C9.916 12.543 9.319 11.57 9.146 11.272C8.973 10.975 9.128 10.814 9.277 10.666C9.411 10.533 9.575 10.32 9.724 10.146C9.873 9.973 9.922 9.849 10.021 9.651C10.12 9.452 10.071 9.279 9.997 9.13C9.922 8.981 9.328 7.519 9.08 6.924C8.832 6.329 8.585 6.403 8.411 6.403C8.238 6.403 8.04 6.403 7.842 6.403C7.644 6.403 7.322 6.477 7.05 6.775C6.778 7.072 6.01 7.791 6.01 9.253C6.01 10.715 7.075 12.128 7.223 12.326C7.372 12.525 9.328 15.542 12.324 16.836C14.453 17.755 14.879 17.576 15.349 17.527C15.819 17.477 16.859 16.907 17.082 16.287C17.305 15.667 17.305 15.147 17.231 15.023C17.156 14.899 16.958 14.849 16.661 14.701H17.472V14.382Z"/><path d="M12.025 0C5.405 0 0.02 5.385 0.02 12C0.02 14.12 0.569 16.099 1.539 17.822L0 23.447L5.757 21.936C7.382 22.822 9.239 23.287 11.169 23.287H11.174C17.794 23.287 23.179 17.902 23.179 11.287C23.179 4.672 17.794 0 11.174 0H12.025ZM11.174 21.336C9.507 21.336 7.876 20.887 6.45 20.04L6.113 19.84L2.618 20.757L3.551 17.347L3.332 16.999C2.425 15.557 1.949 13.905 1.949 12.193C1.949 7.108 6.088 2.969 11.179 2.969C16.27 2.969 20.409 7.108 20.409 12.193C20.409 17.278 16.27 21.336 11.174 21.336Z"/></svg>
+                    <span>Comunidad VIP (Entra Aquí)</span>
                 </div>
-                <div class="icon-right">👉</div>
+                <span class="arrow-right">→</span>
             </a>
 
-            <a href="https://chat.whatsapp.com/DhJw31PaH8f2CwpRgue2Cr" target="_blank" class="link-card link-secondary">
+            <a href="#" class="btn-link">
                 <div style="display:flex; align-items:center; gap:10px;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.472 14.382C17.175 14.233 15.714 13.515 15.441 13.416C15.169 13.317 14.971 13.267 14.773 13.565C14.575 13.863 14.005 14.532 13.832 14.731C13.659 14.929 13.486 14.954 13.189 14.805C12.892 14.656 11.935 14.343 10.8 13.331C9.916 12.543 9.319 11.57 9.146 11.272C8.973 10.975 9.128 10.814 9.277 10.666C9.411 10.533 9.575 10.32 9.724 10.146C9.873 9.973 9.922 9.849 10.021 9.651C10.12 9.452 10.071 9.279 9.997 9.13C9.922 8.981 9.328 7.519 9.08 6.924C8.832
+                    <span class="btn-icon">🧴</span> <span>Mis Favoritos de Skincare</span>
+                </div>
+                <span class="arrow-right">→</span>
+            </a>
+
+            <a href="#" class="btn-link">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="btn-icon">🏋️‍♀️</span>
+                    <span>Reto Fitness 21 Días</span>
+                </div>
+                <span class="arrow-right">→</span>
+            </a>
+
+            <a href="#" class="btn-link">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="btn-icon">💇‍♀️</span>
+                    <span>Guía: Cabello Perfecto</span>
+                </div>
+                <span class="arrow-right">→</span>
+            </a>
+
+            <a href="#" class="btn-link">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span class="btn-icon">💬</span>
+                    <span>Hablar con Soporte</span>
+                </div>
+                <span class="arrow-right">→</span>
+            </a>
+
+        </div>
+
+        <div class="social-icons">
+            <a href="#" class="social-link">📸</a> <a href="#" class="social-link">🎵</a> <a href="#" class="social-link">📧</a> </div>
+
+        <div class="footer-text">© 2025 Tu Mejor Versión</div>
+
+    </div>
+
+</body>
+</html>
