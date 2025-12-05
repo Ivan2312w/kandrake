@@ -11,8 +11,9 @@
             --surface: #ffffff;
             --text-main: #333333;
             --text-sub: #666666;
-            --primary: #d4a373; /* Cor Dourada/Bege */
-            --green: #25D366;   /* WhatsApp */
+            --primary: #d4a373; 
+            --green: #25D366;   
+            --red: #e63946; /* Vermelho para Ofertas */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,7 +21,6 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
-            /* Fundo clean com leve degradê no topo */
             background: linear-gradient(180deg, #faedcd 0%, #fdfcf8 35%);
             color: var(--text-main);
             display: flex;
@@ -91,6 +91,7 @@
             align-items: center;
             gap: 15px;
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative; /* Para posicionar elementos */
         }
 
         .link-card:hover {
@@ -99,36 +100,60 @@
             border-color: var(--primary);
         }
 
-        /* Imagem Pequena dentro do botão (Thumbnail) */
+        /* Imagem Pequena (Thumbnail) */
         .btn-thumb {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 12px;
             object-fit: cover;
             background-color: #f0f0f0;
+            border: 1px solid #eee;
         }
 
         /* Texto do botão */
-        .btn-content { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+        .btn-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
         .btn-title { font-weight: 700; font-size: 15px; }
         .btn-subtitle { font-size: 13px; color: var(--text-sub); }
 
-        /* Ícone de Seta */
+        /* Preço riscado (efeito de promoção) */
+        .old-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .new-price {
+            color: var(--red);
+            font-weight: bold;
+        }
+
+        /* Etiqueta de Desconto */
+        .badge-off {
+            background-color: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 10px;
+            width: fit-content;
+            margin-bottom: 2px;
+            animation: pulse 2s infinite;
+        }
+
         .icon-arrow { color: #ccc; font-size: 20px; }
 
-        /* Estilo Específico para WhatsApp (Borda Verde) */
-        .whatsapp-style {
-            border: 2px solid #e0f2e9;
-        }
-        .whatsapp-style:hover {
-            border-color: var(--green);
-        }
+        /* Estilo WhatsApp */
+        .whatsapp-style { border: 2px solid #e0f2e9; }
+        .whatsapp-style:hover { border-color: var(--green); }
 
-        /* Rodapé Simples */
-        .footer {
-            margin-top: 50px;
-            font-size: 12px;
-            color: #ccc;
+        /* Rodapé */
+        .footer { margin-top: 50px; font-size: 12px; color: #ccc; }
+
+        /* Animação de Pulsar */
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
     </style>
@@ -152,13 +177,12 @@
         <div class="links-wrapper">
 
             <a href="https://chat.whatsapp.com/DhJw31PaH8f2CwpRgue2Cr" target="_blank" class="link-card whatsapp-style">
-                <div style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: #e7fceb; border-radius: 12px;">
+                <div style="width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; background: #e7fceb; border-radius: 12px;">
                     <svg width="35" height="35" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382C17.175 14.233 15.714 13.515 15.441 13.416C15.169 13.317 14.971 13.267 14.773 13.565C14.575 13.863 14.005 14.532 13.832 14.731C13.659 14.929 13.486 14.954 13.189 14.805C12.892 14.656 11.935 14.343 10.8 13.331C9.916 12.543 9.319 11.57 9.146 11.272C8.973 10.975 9.128 10.814 9.277 10.666C9.411 10.533 9.575 10.32 9.724 10.146C9.873 9.973 9.922 9.849 10.021 9.651C10.12 9.452 10.071 9.279 9.997 9.13C9.922 8.981 9.328 7.519 9.08 6.924C8.832 6.329 8.585 6.403 8.411 6.403C8.238 6.403 8.04 6.403 7.842 6.403C7.644 6.403 7.322 6.477 7.05 6.775C6.778 7.072 6.01 7.791 6.01 9.253C6.01 10.715 7.075 12.128 7.223 12.326C7.372 12.525 9.328 15.542 12.324 16.836C14.453 17.755 14.879 17.576 15.349 17.527C15.819 17.477 16.859 16.907 17.082 16.287C17.305 15.667 17.305 15.147 17.231 15.023C17.156 14.899 16.958 14.849 16.661 14.701H17.472V14.382Z"/><path d="M12.025 0C5.405 0 0.02 5.385 0.02 12C0.02 14.12 0.569 16.099 1.539 17.822L0 23.447L5.757 21.936C7.382 22.822 9.239 23.287 11.169 23.287H11.174C17.794 23.287 23.179 17.902 23.179 11.287C23.179 4.672 17.794 0 11.174 0H12.025ZM11.174 21.336C9.507 21.336 7.876 20.887 6.45 20.04L6.113 19.84L2.618 20.757L3.551 17.347L3.332 16.999C2.425 15.557 1.949 13.905 1.949 12.193C1.949 7.108 6.088 2.969 11.179 2.969C16.27 2.969 20.409 7.108 20.409 12.193C20.409 17.278 16.27 21.336 11.174 21.336Z"/></svg>
                 </div>
-                
                 <div class="btn-content">
                     <span class="btn-title">Comunidad VIP WhatsApp</span>
-                    <span class="btn-subtitle">Tips gratis y chat exclusivo</span>
+                    <span class="btn-subtitle">Entra gratis para recibir tips diarios.</span>
                 </div>
                 <div class="icon-arrow">→</div>
             </a>
@@ -167,8 +191,11 @@
                 <img src="capa_manual.jpg" alt="Ebook" class="btn-thumb">
                 
                 <div class="btn-content">
+                    <span class="badge-off">🔥 80% OFF - SOLO HOY</span>
                     <span class="btn-title">Manual Piel de Porcelana</span>
-                    <span class="btn-subtitle">Elimina manchas y acné hoy.</span>
+                    <span class="btn-subtitle">
+                        <span class="old-price">$47</span> <span class="new-price">Oferta Única</span>
+                    </span>
                 </div>
                 <div class="icon-arrow">→</div>
             </a>
